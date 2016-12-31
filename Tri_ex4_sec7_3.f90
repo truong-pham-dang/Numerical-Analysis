@@ -27,12 +27,12 @@ end interface
       print*, "subroutine tri" 
       print"(f22.14)",(x(i),i=1,n)  
       do  i=1,n 
-      d(i) = 2.0    
+      d(i) = 1.0    
       c(i) = 0.5   
-      b(i) = 3.0 
+      b(i) = 2.0 
       end do
-      b(1) = 2.5
-      b(n) = 2.5     
+      b(1) = 1.5
+      b(n) = 1.5     
       call tri(n,c,d,c,b,x) 
       print*, "subroutine tri again" 
       print "(f22.14)",(x(i),i=1,n)  
@@ -54,4 +54,4 @@ end interface
       do i = n-1,1,-1                                              
         x(i) = (b(i) - c(i)*x(i+1))/d(i)                           
       end do                                                       
-    end subroutine tri 
+    end subroutine tri   
