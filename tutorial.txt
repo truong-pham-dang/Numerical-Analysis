@@ -1,0 +1,40 @@
+https://www.mathworks.com/help/matlab/math/systems-of-linear-equations.html
+Singular Coefficient Matrix
+A square matrix A is singular if it does not have linearly independent columns. If A is singular, the solution to Ax = b either does not exist, or is not unique. The backslash operator, A\b, issues a warning if A is nearly singular and raises an error condition if it detects exact singularity.
+
+If A is singular and Ax = b has a solution, you can find a particular solution that is not unique, by typing
+
+P = pinv(A)*b
+P is a pseudoinverse of A. If Ax = b does not have an exact solution, pinv(A) returns a least-squares solution.
+
+For example:
+
+A = [ 1     3     7
+     -1     4     4
+      1    10    18 ]
+is singular, as you can verify by typing
+
+rank(A)
+
+ans =
+
+     2
+Since A is not full rank, it has some singular values equal to zero.
+
+Note:   For information about using pinv to solve systems with rectangular coefficient matrices, see Pseudoinverses.
+Exact Solutions.  For b =[5;2;12], the equation Ax = b has an exact solution, given by
+
+pinv(A)*b
+
+ans =
+    0.3850
+   -0.1103
+    0.7066
+Verify that pinv(A)*b is an exact solution by typing
+
+A*pinv(A)*b
+
+ans =
+    5.0000
+    2.0000
+   12.0000
